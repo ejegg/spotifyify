@@ -48,7 +48,13 @@ function realListFunc() {
 				 'artist' : function(element) { return $('b', element).text(); },
 				 'track' : function(element) { var textBits = $(element).text().split('"'); 
 								return textBits.length > 1 ? textBits[1] : ""; }
-				}
+				},
+			'bleep' : {
+				   'listSelector' : 'div#customChart',
+				   'itemSelector' : 'div.cpItemFw',
+				   'artist' : function(element) { return $('.action ul.itemInfo li.em a', element).text(); },
+				   'track' : function(element) { return $('.action ul.itemInfo li:eq(1)', element).text().trim(); }
+				  }
 		      };
     
     var spotifyApiUrl = 'http://ws.spotify.com/search/1/track.json';
