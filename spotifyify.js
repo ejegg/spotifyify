@@ -3,7 +3,7 @@ function spotifyifySelection() {
         var sel = window.getSelection();
         if (sel.rangeCount) {
             var searchQuery = sel.toString();
-            var spotifyApiUrl = 'http://ws.spotify.com/search/1/album.json?q=' + encodeURI(searchQuery);
+            var spotifyApiUrl = '//ws.spotify.com/search/1/album.json?q=' + encodeURI(searchQuery);
             var spotifyRequest = new XMLHttpRequest();
             var albumURI = "";
             var range = sel.getRangeAt(0);
@@ -52,12 +52,12 @@ function realListFunc() {
 			'bleep' : {
 				   'listSelector' : 'div#customChart',
 				   'itemSelector' : 'div.cpItemFw',
-				   'artist' : function(element) { return $('.action ul.itemInfo li.em a', element).text(); },
+				   'artist' : function(element) { return $('.action ul.itemInfo li.em a', element).attr('title'); },
 				   'track' : function(element) { return $('.action ul.itemInfo li:eq(1)', element).text().trim(); }
 				  }
 		      };
     
-    var spotifyApiUrl = 'http://ws.spotify.com/search/1/track.json';
+    var spotifyApiUrl = '//ws.spotify.com/search/1/track.json';
 
     var list;
     var recognizer;
